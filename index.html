@@ -7,15 +7,18 @@
     <title>t18g Editor</title>
   </head>
   <body>
-    <div style="display: flex">
+    <div style="display: flex; font-family: 'Open Sans'">
       <div style="width: 100%"><textarea id="textarea"></textarea></div>
       <div style="width: 100%" id="preview"></div>
     </div>
     <script>
+      const STORAGE_KEY = "t18g-text";
       const textarea = document.getElementById("textarea");
+      textarea.value = localStorage.getItem() ?? "";
       const preview = document.getElementById("preview");
       textarea.addEventListener("input", (event) => {
         const value = textarea.value;
+        localStorage.setItem(STORAGE_KEY, value);
         const formattedValue = value.split("\\n").join("<br />");
         // console.log({ value, formattedValue });
         preview.innerHTML = formattedValue;
