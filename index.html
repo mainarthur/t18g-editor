@@ -14,7 +14,7 @@
     <script>
       const STORAGE_KEY = "t18g-text";
       const textarea = document.getElementById("textarea");
-      textarea.value = localStorage.getItem() ?? "";
+      textarea.value = localStorage.getItem(STORAGE_KEY) ?? "";
       const preview = document.getElementById("preview");
       textarea.addEventListener("input", (event) => {
         const value = textarea.value;
